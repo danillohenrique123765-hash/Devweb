@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eletrônica Alfa</title>
+  <meta name="description" content="Eletrônica Alfa - tradição, confiança e mais de 40 anos em consertos de TVs, caixas amplificadas e micro-ondas." />
+  <style>
+    :root {
+      --primary: #cf1f25;
+      --primary-dark: #a8161b;
+      --accent: #f3f4f6;
+      --light: #ffffff;
+      --bg: #f8f8f8;
+      --text: #1f1f1f;
+      --muted: #6a6a6a;
+      --card: #ffffff;
+      --border: rgba(0, 0, 0, 0.08);
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+      --radius: 22px;
+      --max-width: 1140px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .nav {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo img {
+      height: 52px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .logo-text {
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.4px;
+      color: var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      font-weight: 700;
+      color: #444;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-cta {
+      padding: 12px 18px;
+      background: var(--primary);
+      color: white;
+      border-radius: 999px;
+      box-shadow: 0 10px 24px rgba(207, 31, 37, 0.22);
+    }
+
+    .hero {
+      padding: 80px 0 44px;
+    }
+
+    .hero-wrapper {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-main {
+      background: linear-gradient(135deg, rgba(207, 31, 37, 0.98), rgba(168, 22, 27, 0.96));
+      color: white;
+      border-radius: 32px;
+      padding: 56px;
+      box-shadow: 0 24px 60px rgba(170, 22, 27, 0.18);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-main::before {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 50%;
+      top: -80px;
+      right: -70px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 10px 16px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 4.1rem);
+      line-height: 1.08;
+      margin-bottom: 18px;
+      max-width: 720px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero p {
+      max-width: 640px;
+      font-size: 1.06rem;
+      color: rgba(255,255,255,0.92);
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: 0.25s ease;
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
+      background: white;
+      color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: #f2f2f2;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: rgba(255,255,255,0.55);
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--primary);
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 18px;
+    }
+
+    .hero-card,
+    .info-mini {
+      background: var(--card);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .hero-card h2,
+    .info-mini h3 {
+      font-size: 1.28rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-card p,
+    .info-mini p {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .highlight-list {
+      margin-top: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .highlight-item {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fafafa;
+      border: 1px solid rgba(0,0,0,0.05);
+      font-weight: 700;
+      color: #333;
+    }
+
+    section {
+      padding: 44px 0 24px;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 38px;
+    }
+
+    .section-title span {
+      display: inline-block;
+      color: var(--primary);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.1px;
+      font-size: 0.86rem;
+      margin-bottom: 10px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+    }
+
+    .about-grid,
+    .services-grid,
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+      background: var(--card);
+      padding: 30px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .card h3 {
+      font-size: 1.28rem;
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .service-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::after {
+      content: "";
+      position: absolute;
+      right: -30px;
+      bottom: -30px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(207, 31, 37, 0.05);
+    }
+
+    .service-card .number {
+      display: inline-flex;
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: rgba(207, 31, 37, 0.12);
+      color: var(--primary);
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .info-banner {
+      margin-top: 28px;
+      background: linear-gradient(135deg, #111 0%, #252525 100%);
+      color: white;
+      border-radius: 28px;
+      padding: 34px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .info-banner h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .info-banner p {
+      color: rgba(255,255,255,0.82);
+      max-width: 700px;
+    }
+
+    .cta {
+      padding: 58px 0 70px;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, rgba(207, 31, 37, 1), rgba(145, 16, 21, 1));
+      color: white;
+      border-radius: 30px;
+      padding: 46px;
+      text-align: center;
+      box-shadow: 0 24px 50px rgba(170, 22, 27, 0.18);
+    }
+
+    .cta-box h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      margin-bottom: 14px;
+    }
+
+    .cta-box p {
+      color: rgba(255,255,255,0.9);
+      max-width: 760px;
+      margin: 0 auto 24px;
+    }
+
+    footer {
+      background: #111;
+      color: #d6d6d6;
+      padding: 28px 0;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      background: #25d366;
+      color: white;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 1.7rem;
+      box-shadow: 0 14px 28px rgba(37, 211, 102, 0.35);
+      z-index: 1200;
+      transition: transform 0.2s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+    }
+
+    @media (max-width: 980px) {
+      .hero-wrapper,
+      .about-grid,
+      .services-grid,
+      .info-grid,
+      .info-banner {
+        grid-template-columns: 1fr;
+        display: grid;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 0;
+      }
+
+      .hero-main,
+      .cta-box {
+        padding: 34px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 34px;
+      }
+
+      .hero-main,
+      .hero-card,
+      .info-mini,
+      .card,
+      .cta-box {
+        padding: 24px;
+      }
+
+      .btn-group,
+      .nav-links {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+      }
+
+      .btn,
+      .nav-cta {
+        width: 100%;
+        text-align: center;
+      }
+
+      .logo {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .nav {
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <img src="AISelect_20260312_112033_Instagram.jpg" alt="Logo Eletrônica Alfa" />
+        <div class="logo-text">Eletrônica Alfa</div>
+      </div>
+      <nav class="nav-links">
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#informacoes">Informações</a>
+        <a href="#contato" class="nav-cta">WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-wrapper">
+        <div class="hero-main">
+          <div class="hero-badge">Mais de 40 anos de tradição e confiança</div>
+          <h1>Consertos eletrônicos com experiência, seriedade e atendimento direto</h1>
+          <p>
+            A Eletrônica Alfa mantém a confiança dos clientes ao longo das gerações, oferecendo um atendimento profissional, ágil e transparente para quem procura qualidade em consertos de TVs, caixas amplificadas e micro-ondas.
+          </p>
+          <div class="btn-group">
+            <a class="btn btn-primary" href="#sobre">Conheça a loja</a>
+            <a class="btn btn-outline" href="https://wa.me/5565993420096?text=Olá!%20Quero%20mais%20informações%20sobre%20a%20Eletrônica%20Alfa." target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <div class="hero-card">
+            <h2>Atendimento com tradição</h2>
+            <p>
+              A loja há mais de 40 anos, preservando a tradicionalidade, a confiança e o compromisso com cada cliente atendido.
+            </p>
+            <div class="highlight-list">
+              <div class="highlight-item">TVs de qualquer marca</div>
+              <div class="highlight-item">Caixas amplificadas de qualquer marca</div>
+              <div class="highlight-item">Micro-ondas de qualquer marca</div>
+            </div>
+          </div>
+
+          <div class="info-mini">
+            <h3>Horário de atendimento</h3>
+            <p>07:30 às 17:30, sem pausa para almoço.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div class="container">
+        <div class="section-title">
+          <span>Sobre a loja</span>
+          <h2>Uma história construída com trabalho sério e confiança</h2>
+          <p>
+            A Eletrônica Alfa une a força da tradição com uma presença moderna, facilitando o contato e transmitindo segurança desde o primeiro atendimento, garantimos uma análise completa do seu aparelho totalmente de graça.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="card">
+            <h3>Quem somos</h3>
+            <p>
+              A Eletrônica Alfa é uma loja tradicional localizada no centro da Várzea Grande - MT, que construiu sua reputação com seriedade, respeito ao cliente e compromisso com a qualidade. Ao longo de mais de quatro décadas, manteve a confiança das pessoas que buscam um serviço seguro e profissional.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Nossa proposta</h3>
+            <p>
+              Nossa proposta é oferecer um atendimento claro, humano e eficiente, valorizando a experiência da loja e a praticidade do contato digital para aproximar ainda mais os clientes da solução que procuram.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicos">
+      <div class="container">
+        <div class="section-title">
+          <span>Serviços</span>
+          <h2>Especialistas em consertos eletrônicos</h2>
+          <p>
+            Trabalhamos com foco em equipamentos de diferentes marcas, sempre buscando um serviço confiável, cuidadoso e com atendimento profissional.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <div class="card service-card">
+            <div class="number">01</div>
+            <h3>Conserto de TVs</h3>
+            <p>
+              Realizamos consertos de TVs de qualquer marca com experiência técnica, cuidado no diagnóstico e compromisso com um atendimento de confiança.
+            </p>
+          </div>
+
+          <div class="card service-card">
+            <div class="number">02</div>
+            <h3>Caixas amplificadas</h3>
+            <p>
+              Trabalhamos com manutenção e consertos de caixas amplificadas de qualquer marca, priorizando qualidade e solução eficiente para cada caso.
+            </p>
+          </div>
+
+          <div class="card service-card">
+            <div class="number">03</div>
+            <h3>Micro-ondas</h3>
+            <p>
+              Também realizamos consertos de micro-ondas de qualquer marca, mantendo o padrão de seriedade e confiança que faz parte da história da loja.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="informacoes">
+      <div class="container">
+        <div class="section-title">
+          <span>Informações</span>
+          <h2>Atendimento fácil, direto e profissional</h2>
+          <p>
+            Confira os dados principais da loja e fale conosco pelo WhatsApp para obter mais informações com rapidez.
+          </p>
+        </div>
+
+        <div class="info-grid">
+          <div class="card">
+            <h3>Endereço</h3>
+            <p>Avenida Couto Magalhães, 1381</p>
+          </div>
+
+          <div class="card">
+            <h3>Horário</h3>
+            <p>07:30 às 17:30, sem pausa para almoço</p>
+          </div>
+        </div>
+
+        <div class="info-banner">
+          <div>
+            <h3>Fale com a Eletrônica Alfa</h3>
+            <p>
+              Entre em contato pelo WhatsApp para tirar dúvidas, pedir informações sobre a loja e receber atendimento com a praticidade que você precisa.
+            </p>
+          </div>
+          <a class="btn btn-primary" href="https://wa.me/5565993420096?text=Olá!%20Quero%20informações%20sobre%20a%20Eletrônica%20Alfa." target="_blank" rel="noopener noreferrer">Chamar no WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contato">
+      <div class="container">
+        <div class="cta-box">
+          <h2>Tradição que inspira confiança</h2>
+          <p>
+            Há mais de 40 anos, a Eletrônica Alfa atende seus clientes com seriedade e compromisso. Venha fazer seu orçamento agora de graça, você também pode entrar em contato de forma rápida e prática pelo WhatsApp.
+          </p>
+          <a class="btn btn-primary" href="https://wa.me/5565993420096?text=Olá!%20Vim%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20a%20Eletrônica%20Alfa." target="_blank" rel="noopener noreferrer">Ir para o WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Eletrônica Alfa. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/5565993420096?text=Olá!%20Quero%20falar%20com%20a%20Eletrônica%20Alfa."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Falar no WhatsApp"
+    title="Falar no WhatsApp"
+  >
+    ✆
+  </a>
+</body>
+</html>
