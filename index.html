@@ -415,7 +415,27 @@
     .whatsapp-float:hover {
       transform: scale(1.08);
     }
+    .instagram-float {
+    position: fixed;
+    right: 18px;
+    bottom: 90px;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 1rem;
+    font-weight: 800;
+    color: white;
+  background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af);
+  box-shadow: 0 14px 28px rgba(221, 42, 123, 0.35);
+  z-index: 1200;
+  transition: transform 0.2s ease;
+}
 
+.instagram-float:hover {
+  transform: scale(1.08);
+}
     @media (max-width: 980px) {
       .hero-wrapper,
       .about-grid,
@@ -479,8 +499,7 @@
   <header>
     <div class="container nav">
       <div class="logo">
-  <img src="c95615db-0fe4-45df-a742-db0db861e22c.png" style="height:40px; display:block;">
-        </div>
+        <img src="AISelect_20260312_112033_Instagram.jpg" alt="Logo Eletrônica Alfa" />
         <div class="logo-text">Eletrônica Alfa</div>
       </div>
       <nav class="nav-links">
@@ -496,7 +515,7 @@
     <section class="hero">
       <div class="container hero-wrapper">
         <div class="hero-main">
-          <div class="hero-badge">Mais de 40 anos de tradição e confiança</div>
+          <div class="hero-badge">Com mais tranquilidade e confiança</div>
           <h1>Consertos eletrônicos com experiência, seriedade e atendimento direto</h1>
           <p>
             A Eletrônica Alfa mantém a confiança dos clientes ao longo das gerações, oferecendo um atendimento profissional, ágil e transparente para quem procura qualidade em consertos de TVs, caixas amplificadas e micro-ondas.
@@ -509,20 +528,15 @@
 
         <div class="hero-side">
           <div class="hero-card">
-            <h2>Atendimento com tradição</h2>
+            <h2>Atendimento Diversos</h2>
             <p>
-              A loja há mais de 40 anos, preservando a tradicionalidade, a confiança e o compromisso com cada cliente atendido.
+              A loja tem a mais diversa capacidade de analisar seu aparelho!
             </p>
             <div class="highlight-list">
               <div class="highlight-item">TVs de qualquer marca</div>
               <div class="highlight-item">Caixas amplificadas de qualquer marca</div>
               <div class="highlight-item">Micro-ondas de qualquer marca</div>
             </div>
-          </div>
-
-          <div class="info-mini">
-            <h3>Horário de atendimento</h3>
-            <p>Dias úteis 07:30 às 17:30 | Sabádos 07:30 ás 12:00</p>
           </div>
         </div>
       </div>
@@ -534,18 +548,9 @@
           <span>Sobre a loja</span>
           <h2>Uma história construída com trabalho sério e confiança</h2>
           <p>
-            A Eletrônica Alfa une a força da tradição com uma presença moderna, facilitando o contato e transmitindo segurança desde o primeiro atendimento, garantimos uma análise completa do seu aparelho totalmente de graça.
+            A Eletrônica Alfa é uma loja tradicional localizada no centro da Várzea Grande - MT, que construiu sua reputação com seriedade, respeito ao cliente e compromisso com a qualidade. Ao longo de mais de quatro décadas, manteve a confiança das pessoas que buscam um serviço seguro e profissional.
           </p>
         </div>
-
-        <div class="about-grid">
-          <div class="card">
-            <h3>Quem somos</h3>
-            <p>
-              A Eletrônica Alfa é uma loja tradicional localizada no centro da Várzea Grande - MT, que construiu sua reputação com seriedade, respeito ao cliente e compromisso com a qualidade. Ao longo de mais de quatro décadas, manteve a confiança das pessoas que buscam um serviço seguro e profissional.
-            </p>
-          </div>
-
           <div class="card">
             <h3>Nossa proposta</h3>
             <p>
@@ -611,8 +616,8 @@
           </div>
 
           <div class="card">
-            <h3>Horário</h3>
-            <p>Dias úteis das 07:30 às 17:30 | Sabádos 07:30 ás 12:00</p>
+            <h3>Horário De Funcionamento</h3>
+            <p>Dias úteis das 07:30 ás 17:30 | Sábados das 07:30 ás 12:00.</p>
           </div>
         </div>
 
@@ -627,18 +632,6 @@
         </div>
       </div>
     </section>
-
-    <section class="cta" id="contato">
-      <div class="container">
-        <div class="cta-box">
-          <h2>Tradição que inspira confiança</h2>
-          <p>
-            Há mais de 40 anos, a Eletrônica Alfa atende seus clientes com seriedade e compromisso. Venha fazer seu orçamento agora de graça, você também pode entrar em contato de forma rápida e prática pelo WhatsApp.
-          </p>
-          <a class="btn btn-primary" href="https://wa.me/5565993420096?text=Olá!%20Vim%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20a%20Eletrônica%20Alfa." target="_blank" rel="noopener noreferrer">Ir para o WhatsApp</a>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer>
@@ -646,7 +639,16 @@
       <p>© 2026 Eletrônica Alfa. Todos os direitos reservados.</p>
     </div>
   </footer>
-
+<a
+  class="instagram-float"
+  href="https://instagram.com/eletronicaalfa.1"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Abrir Instagram"
+  title="Instagram"
+>
+  IG
+</a>
   <a
     class="whatsapp-float"
     href="https://wa.me/5565993420096?text=Olá!%20Quero%20falar%20com%20a%20Eletrônica%20Alfa."
