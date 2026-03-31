@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eletrônica Alfa</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <meta name="description" content="Eletrônica Alfa - tradição, confiança e mais de 40 anos em consertos de TVs, caixas amplificadas e micro-ondas." />
+  <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     :root {
       --primary: #cf1f25;
@@ -55,30 +58,29 @@
 
     header {
       position: relative;
+      background: white;
+      box-shadow: 0 0px 10px rgba(0,0,0,0.05);
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     }
 
     .nav {
-      min-height: 84px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
+      padding: 15px 0;
+
     }
 
     .logo {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
+      font-weight: bold;
+      font-size: 18px;
     }
 
     .logo img {
-      height: 52px;
-      width: auto;
-      object-fit: contain;
+     width: 40px;
     }
 
     .logo-text {
@@ -90,17 +92,29 @@
 
     .nav-links {
       display: flex;
-      align-items: center;
-      gap: 22px;
-      flex-wrap: wrap;
-      font-weight: 700;
-      color: #444;
+      gap: 25px;
     }
 
-    .nav-links a:hover {
-      color: var(--primary);
+    .nav-links a{
+     text-decoration: none;
+     color: 333;
+     font-weight: 500;
+     transition: 0.2s;
     }
-
+    .nav-links a:hover{
+        color: #cf1f25
+    }
+    .btn-whatsapp{
+        background: #cf1f25;
+        color: white;
+        padding: 10px 18px;
+        border-radius: 25px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 500;
+    }
     .nav-cta {
       padding: 12px 18px;
       background: var(--primary);
@@ -249,6 +263,20 @@
       border: 1px solid rgba(0,0,0,0.05);
       font-weight: 700;
       color: #333;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05)
+      
+    }
+    .highlight-item i {
+        color: #cf1f25;
+        font-size: 20px;
+        min-width: 20px;
+    }
+    .highlight-item{
+        transition: all 0.2s ease;
+    }
+    .highlight-item:hover {
+        background: #eeeeee;
+        transform: translateX(5px);
     }
 
     section {
@@ -310,10 +338,43 @@
     .card p {
       color: var(--muted);
     }
-
+    .card i {
+        color: #cf1f25;
+        font-size: 20px;
+        min-width: 20px;
+    }
+    .card{
+        transition: all 0.25s ease;
+    }
+    .card:hover{
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.08)
+    }
     .service-card {
       position: relative;
       overflow: hidden;
+    }
+    .service-card{
+        transition: all 0.25s ease;
+    }
+    .service-card:hover{
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08)
+    }
+    .service-card p{
+        color: #666;
+        line-height: 1.5;
+    }
+    .number{
+        background: rgba(207, 31, 37, 0.12);
+        width: 45px;
+        height: 45px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center
+
+
     }
 
     .service-card::after {
@@ -447,11 +508,30 @@
       }
 
       .nav {
+        display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        gap: 14px;
         padding: 16px 0;
       }
 
+      .logo{
+        width: 100%;
+        justify-content: center;
+      }
+      .nav-links{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .nav-links a{
+        font-size: 1.05rem;
+      }
+      .btn-whatsapp{
+        width: 100%;
+        justify-content: center;
+      }
       .hero-main,
       .cta-box {
         padding: 34px;
@@ -494,20 +574,24 @@
       }
     }
   </style>
+
 </head>
 <body>
   <header>
     <div class="container nav">
       <div class="logo">
-        <img src="AISelect_20260312_112033_Instagram.jpg" alt="Logo Eletrônica Alfa" />
-        <div class="logo-text">Eletrônica Alfa</div>
+        <img src="c95615db-0fe4-45df-a742-db0db861e22c.png" alt="Logo Eletrônica Alfa" />
+        <span>Eletrônica alfa</span>
       </div>
       <nav class="nav-links">
-        <a href="#sobre">Sobre</a>
+        <a href="#sobre">Sobre</a> 
         <a href="#servicos">Serviços</a>
         <a href="#informacoes">Informações</a>
-        <a href="#contato" class="nav-cta">WhatsApp</a>
       </nav>
+      <a href="https://wa.me/5565993420096?text=Olá!%20Quero%20falar%20com%20a%20Eletrônica%20Alfa."class="btn-whatsapp">
+        <i class="fa-brands fa-whatsapp"></i>
+        WhatsApp
+      </a>
     </div>
   </header>
 
@@ -528,14 +612,31 @@
 
         <div class="hero-side">
           <div class="hero-card">
-            <h2>Atendimento Diversos</h2>
+            <h2>Vendas de diversificados produtos</h2>
             <p>
-              A loja tem a mais diversa capacidade de analisar seu aparelho!
+              A loja tem os mais diversos produtos para seus aparelhos!
             </p>
             <div class="highlight-list">
-              <div class="highlight-item">TVs de qualquer marca</div>
-              <div class="highlight-item">Caixas amplificadas de qualquer marca</div>
-              <div class="highlight-item">Micro-ondas de qualquer marca</div>
+              <div class="highlight-item">
+                <i class="fa-solid fa-tv"></i>
+                <span>Controles remotos para sua televisão</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fa-solid fa-satellite-dish"></i>
+                <span>Antenas (Externas e Internas)</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fa-solid fa-plug"></i>
+                <span>Varidades diferentes de cabos</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fa-solid fa-bolt"></i>
+                <span>Fontes de todos os valores</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fa-solid fa-battery-full"></i>
+                <span>Pilhas</span>
+              </div>
             </div>
           </div>
         </div>
@@ -573,7 +674,9 @@
 
         <div class="services-grid">
           <div class="card service-card">
-            <div class="number">01</div>
+            <div class="number">
+                <i class="fa-solid fa-tv"></i>
+            </div>
             <h3>Conserto de TVs</h3>
             <p>
               Realizamos consertos de TVs de qualquer marca com experiência técnica, cuidado no diagnóstico e compromisso com um atendimento de confiança.
@@ -581,7 +684,9 @@
           </div>
 
           <div class="card service-card">
-            <div class="number">02</div>
+            <div class="number">
+                <i class="fa-solid fa-volume-high"></i>
+            </div>
             <h3>Caixas amplificadas</h3>
             <p>
               Trabalhamos com manutenção e consertos de caixas amplificadas de qualquer marca, priorizando qualidade e solução eficiente para cada caso.
@@ -589,7 +694,9 @@
           </div>
 
           <div class="card service-card">
-            <div class="number">03</div>
+            <div class="number">
+                <i class="fa-solid fa-fire"></i>
+            </div>
             <h3>Micro-ondas</h3>
             <p>
               Também realizamos consertos de micro-ondas de qualquer marca, mantendo o padrão de seriedade e confiança que faz parte da história da loja.
@@ -605,17 +712,19 @@
           <span>Informações</span>
           <h2>Atendimento fácil, direto e profissional</h2>
           <p>
-            Confira os dados principais da loja e fale conosco pelo WhatsApp para obter mais informações com rapidez.
+            Confira os dados principais da loja e fale conosco pelo WhatsApp e Instagram para obter mais informações com rapidez.
           </p>
         </div>
 
         <div class="info-grid">
           <div class="card">
+            <i class="fa-solid fa-map"></i>
             <h3>Endereço</h3>
-            <p>Avenida Couto Magalhães, 1381</p>
+            <p>Avenida Couto Magalhães, 1381 | Em frente a casa de Arte Cultura!</p>
           </div>
 
           <div class="card">
+            <i class="fa-solid fa-clock"></i>
             <h3>Horário De Funcionamento</h3>
             <p>Dias úteis das 07:30 ás 17:30 | Sábados das 07:30 ás 12:00.</p>
           </div>
@@ -647,7 +756,7 @@
   aria-label="Abrir Instagram"
   title="Instagram"
 >
-  IG
+  <i class="fab fa-instagram"></i>
 </a>
   <a
     class="whatsapp-float"
@@ -657,7 +766,10 @@
     aria-label="Falar no WhatsApp"
     title="Falar no WhatsApp"
   >
-    ✆
+    <i class="fab fa-whatsapp"></i>
   </a>
+  <script>
+    lucide.createicons();
+  </script>
 </body>
 </html>
