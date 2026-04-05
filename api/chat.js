@@ -1,4 +1,3 @@
-cat > /mnt/user-data/outputs/api/chat.js << 'EOF'
 export const config = {
   api: {
     bodyParser: true,
