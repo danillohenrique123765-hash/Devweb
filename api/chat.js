@@ -64,8 +64,4 @@ Personalidade: Seja simpático, objetivo e profissional. Use linguagem informal 
     return res.status(500).json({ error: 'Erro interno do servidor' });
   }
 }
-  } catch (error) {
-    return res.status(500).json({ error: 'Erro interno do servidor' });
-  }
-}
 
