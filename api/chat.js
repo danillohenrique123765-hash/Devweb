@@ -1,4 +1,3 @@
-cat > /mnt/user-data/outputs/api/chat.js << 'EOF'
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Método não permitido' });
