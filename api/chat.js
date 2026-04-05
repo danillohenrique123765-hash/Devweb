@@ -19,7 +19,7 @@ module.exports = async function handler(req, res) {
   });
 
   const response = await fetch(
-    'https://generativelanguage.googleapis.com/v1beta/models/models/gemini-2.0-flash:generateContent?key=' + process.env.GEMINI_API_KEY,
+    'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' + process.env.GEMINI_API_KEY,
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -30,7 +30,15 @@ module.exports = async function handler(req, res) {
     }
   );
 
-  const data = await response.json();
+  const text = await response.text();
+  console.log('Gemini raw response:', text);
+
+  let data;
+  try {
+    data = JSON.parse(text);
+  } catch(e) {
+    return res.status(500).json({ error: 'Resposta inválida do Gemini', raw: text });
+  }
 
   if (!response.ok) {
     return res.status(500).json({ error: 'Erro Gemini', detail: data });
