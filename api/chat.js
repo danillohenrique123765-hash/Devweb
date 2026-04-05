@@ -1,21 +1,10 @@
-//v4
-export const config = {
-  api: {
-    bodyParser: true,
-  },
-};
-
-export default async function handler(req, res) {
+cat > /mnt/user-data/outputs/api/chat.js << 'EOF'
+module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Método não permitido' });
   }
 
-  let messages;
-  try {
-    messages = req.body?.messages;
-  } catch(e) {
-    return res.status(400).json({ error: 'Body inválido' });
-  }
+  const messages = req.body && req.body.messages;
 
   if (!messages || !Array.isArray(messages)) {
     return res.status(400).json({ error: 'Mensagens inválidas' });
@@ -44,13 +33,15 @@ Produtos à venda:
 
 Personalidade: Seja simpático, objetivo e profissional. Use linguagem informal mas educada, como um atendente prestativo. Quando o cliente perguntar sobre orçamento ou problemas específicos, incentive-o a entrar em contato pelo WhatsApp. Responda sempre em português brasileiro. Seja breve e direto. Não invente informações que não foram fornecidas.`;
 
-  const geminiMessages = messages.map(m => ({
-    role: m.role === 'assistant' ? 'model' : 'user',
-    parts: [{ text: m.content }]
-  }));
+  const geminiMessages = messages.map(function(m) {
+    return {
+      role: m.role === 'assistant' ? 'model' : 'user',
+      parts: [{ text: m.content }]
+    };
+  });
 
   const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
+    'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=' + process.env.GEMINI_API_KEY,
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -64,9 +55,10 @@ Personalidade: Seja simpático, objetivo e profissional. Use linguagem informal 
   const data = await response.json();
 
   if (!response.ok) {
-    return res.status(500).json({ error: 'Erro na API do Gemini', detail: data });
+    console.error('Gemini error:', JSON.stringify(data));
+    return res.status(500).json({ error: 'Erro Gemini', detail: data });
   }
 
   const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || 'Desculpe, não consegui responder agora.';
   return res.status(200).json({ reply });
-}
+};
