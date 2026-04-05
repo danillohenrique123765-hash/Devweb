@@ -487,7 +487,80 @@
       text-align: center;
       font-size: 0.95rem;
     }
-
+    .chatbot {
+        position: fixed;
+        bottom: 120px;
+        right: 20px;
+        width: 300;
+        background: white;
+        border-radius: 12px;
+        display: none;
+        flex-direction: column;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        font-family: arial, sans-serif;
+        z-index: 9999;
+    }
+    .chat-header{
+        background: #e60023;
+        color: white;
+        padding: 10px;
+        border-radius: 12px 12px 0 0;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .chat-header button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+     }
+    .chat-body {
+    padding: 10px;
+    height: 200px;
+    overflow-y: auto;
+    font-size: 14px;
+    }
+    .chat-footer {
+    display: flex;
+    border-top: 1px solid #ccc;
+    }
+    .chat-footer input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    outline: none;
+    }
+    .chat-footer button {
+    background: #e60023;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    }
+    .eletrobot-float{
+    position: fixed;
+    right: 18px;
+    bottom: 163px;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 1rem;
+    color:white ;
+    background: linear-gradient(135deg, #cf1f25, #e4e4e4);
+    z-index: 1200;
+    padding: auto;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+    
+    .eletrobot-float:hover{
+        transform: scale(1.08);
+    }
+    
     .whatsapp-float {
       position: fixed;
       right: 18px;
@@ -613,7 +686,7 @@
     <div class="container nav">
       <div class="logo">
         <img src="c95615db-0fe4-45df-a742-db0db861e22c.png" alt="Logo Eletrônica Alfa" />
-        <span>Eletrônica Alfa</span>
+        <span>Eletrônica alfa</span>
       </div>
       <nav class="nav-links">
         <a href="#sobre">Sobre</a> 
@@ -760,7 +833,7 @@
           <div class="card">
             <i class="fa-solid fa-clock"></i>
             <h3>Horário De Funcionamento</h3>
-            <p>Dias úteis das 07:30 às 17:30 | Sábados das 07:30 às 12:00.</p>
+            <p>Dias úteis das 07:30 ás 17:30 | Sábados das 07:30 ás 12:00.</p>
           </div>
         </div>
 
@@ -773,6 +846,22 @@
           </div>
           <a class="btn btn-primary" href="https://wa.me/5565993420096?text=Olá!%20Quero%20informações%20sobre%20a%20Eletrônica%20Alfa." target="_blank" rel="noopener noreferrer">Chamar no WhatsApp</a>
         </div>
+        <div id="chatbot" class="chatbot">
+            <div class="chat-header">
+                <span>Eletrôbot Assistente Virtual</span>
+                <i class="fa-solid fa-robot"></i>
+                <button onclick="fecharchat()"></button>   
+            </div>
+            <div class ="chat-body" id="chat-body">
+                <p>Olá! posso ter ajudar com dúvidas sobre concertos, produtos e atendimentos</p>
+            </div>
+            <div class="chat-footer">
+                <input type="text" id="pergunta" placeholder="Digite sua pergunta...">
+                <button onclick="enviarPergunta()">Enviar</button>
+
+            </div>
+        </div>
+
       </div>
     </section>
   </main>
@@ -802,8 +891,10 @@
   >
     <i class="fab fa-whatsapp"></i>
   </a>
-  <script>
-    lucide.createicons();
-  </script>
+  <button class="eletrobot-float" onclick="abrirChat()">
+     <i class="fa-solid fa-robot"></i>
+  </button>
+
+ <script src="script.js"></script>
 </body>
 </html>
